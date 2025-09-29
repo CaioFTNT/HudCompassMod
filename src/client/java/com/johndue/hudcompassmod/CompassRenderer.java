@@ -22,11 +22,11 @@ public class CompassRenderer {
     private static MinecraftClient client = MinecraftClient.getInstance();
     private static TextRenderer textRenderer = client.textRenderer;
     private static Window compassWindow = client.getWindow();
-    private static int window_center_x = compassWindow.getScaledWidth()/2;
-
 
 
     public static void render(DrawContext context, RenderTickCounter tickCounter) {
+        int window_center_x = compassWindow.getScaledWidth()/2;
+        System.out.println(window_center_x);
         Vec3d cam_pos = client.getCameraEntity().getRotationVector();
         double cam_angle = Math.atan2(cam_pos.x, cam_pos.z)/Math.PI;
 

@@ -25,20 +25,20 @@ public class Pins {
     private static final Map<Item, Integer> BUNDLE_COLOR_MAP = new HashMap<>() {{
         put(Items.BUNDLE, 0xeb4034);
         put(Items.WHITE_BUNDLE, 0xFFFFFF);
-        put(Items.ORANGE_BUNDLE, 0xD87F33);
+        put(Items.ORANGE_BUNDLE, 0xf08d3a);
         put(Items.MAGENTA_BUNDLE, 0xB24CD8);
-        put(Items.LIGHT_BLUE_BUNDLE, 0x6699D8);
+        put(Items.LIGHT_BLUE_BUNDLE, 0xc24eed);
         put(Items.YELLOW_BUNDLE, 0xE5E533);
         put(Items.LIME_BUNDLE, 0x7FCC19);
-        put(Items.PINK_BUNDLE, 0xF27FA5);
-        put(Items.GRAY_BUNDLE, 0x4C4C4C);
+        put(Items.PINK_BUNDLE, 0x87db18);
+        put(Items.GRAY_BUNDLE, 0x575757);
         put(Items.LIGHT_GRAY_BUNDLE, 0x999999);
-        put(Items.CYAN_BUNDLE, 0x4C7F99);
-        put(Items.PURPLE_BUNDLE, 0x7F3FB2);
-        put(Items.BLUE_BUNDLE, 0x334CB2);
-        put(Items.BROWN_BUNDLE, 0x664C33);
-        put(Items.GREEN_BUNDLE, 0x667F33);
-        put(Items.RED_BUNDLE, 0x993333);
+        put(Items.CYAN_BUNDLE, 0x0fb5b8);
+        put(Items.PURPLE_BUNDLE, 0x8f47c9);
+        put(Items.BLUE_BUNDLE, 0x264be0);
+        put(Items.BROWN_BUNDLE, 0x6e5238);
+        put(Items.GREEN_BUNDLE, 0x81bd46);
+        put(Items.RED_BUNDLE, 0xeb4034);
         put(Items.BLACK_BUNDLE, 0x191919);
 
     }};
