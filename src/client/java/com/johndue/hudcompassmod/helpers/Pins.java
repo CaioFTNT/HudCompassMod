@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -30,7 +29,7 @@ public class Pins {
         put(Items.LIGHT_BLUE_BUNDLE, 0xc24eed);
         put(Items.YELLOW_BUNDLE, 0xE5E533);
         put(Items.LIME_BUNDLE, 0x7FCC19);
-        put(Items.PINK_BUNDLE, 0x87db18);
+        put(Items.PINK_BUNDLE, 0xF27FA5);
         put(Items.GRAY_BUNDLE, 0x575757);
         put(Items.LIGHT_GRAY_BUNDLE, 0x999999);
         put(Items.CYAN_BUNDLE, 0x0fb5b8);
@@ -60,9 +59,6 @@ public class Pins {
                     if (bundleItem.getItem().equals(Items.COMPASS) && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER) != null && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER).target().isPresent()) {
                         GlobalPos lodestoneGlobalPos = bundleItem.get(DataComponentTypes.LODESTONE_TRACKER).target().get();
                         String pinName = bundleItem.getName().getLiteralString();
-
-                        System.out.println("Color:");
-                        System.out.println(bundleColor);
 
                         CompassPin pin = new CompassPin(lodestoneGlobalPos, pinName != null ? pinName : "|", bundleColor);
 
