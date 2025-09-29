@@ -3,7 +3,7 @@
 	"id": "hud-compass",
 	"version": "${version}",
 	"name": "HUD Compass",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Simple RPG-style ",
 	"authors": [
 		"Me!"
 	],
@@ -11,9 +11,9 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/hud-compass/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"com.johndue.hudcompassmod.HUDCompass"
