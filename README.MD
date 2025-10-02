@@ -2,10 +2,6 @@
 
 A simple RPG-style HUD compass for Minecraft (Fabric).
 
-> **Disclaimer:** This is a personal mod I created for my own use. It's my first mod and likely my last. I probably won't update it in the future, but feel free to modify the code if you're interested.
-
----
-
 <div align="center"><img src="assets/Compass.png" alt="Compass Icon"></div>
 
 ## How It Works

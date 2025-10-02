@@ -26,7 +26,6 @@ public class CompassRenderer {
 
     public static void render(DrawContext context, RenderTickCounter tickCounter) {
         int window_center_x = compassWindow.getScaledWidth()/2;
-        System.out.println(window_center_x);
         Vec3d cam_pos = client.getCameraEntity().getRotationVector();
         double cam_angle = Math.atan2(cam_pos.x, cam_pos.z)/Math.PI;
 
@@ -44,7 +43,7 @@ public class CompassRenderer {
             }
         }
 
-        // Draw all pins from lodestone
+        // Draw all pins from lodestones
         for (CompassPin pin : Pins.getPins(client.player.getWorld())) {
             int offset = MathMethods.getCompassOffset(cam_angle, pin.getAngle(client.player.getPos()), compass_width);
             int text_width = textRenderer.getWidth(pin.getName());
