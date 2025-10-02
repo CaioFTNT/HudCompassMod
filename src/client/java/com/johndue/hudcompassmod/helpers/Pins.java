@@ -9,6 +9,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.ItemTags;
@@ -42,31 +43,44 @@ public class Pins {
 
     }};
 
+    private static void parseCompass(ItemStack item, int color) {
+        GlobalPos lodestoneGlobalPos = item.get(DataComponentTypes.LODESTONE_TRACKER).target().get();
+        String pinName = item.getName().getLiteralString();
+
+        CompassPin pin = new CompassPin(lodestoneGlobalPos, pinName != null ? pinName : "|", color);
+
+        pinList.add(pin);
+    }
+
+    private static void processBundle(ItemStack bundle) {
+        int bundleColor = BUNDLE_COLOR_MAP.getOrDefault(bundle.getItem(), 0xeb4034);
+
+        bundle.get(DataComponentTypes.BUNDLE_CONTENTS).iterate().forEach(bundleItem -> {
+
+            if (bundleItem.getItem().equals(Items.COMPASS)
+                    && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER) != null
+                    && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER).target().isPresent()) 
+                {
+                parseCompass(bundleItem, bundleColor);
+            } else if (bundleItem.isIn(ItemTags.BUNDLES)) {
+                processBundle(bundleItem);
+            }
+        });
+    }
+
     public static void inventoryChanged() {
         if (!pinList.isEmpty()) pinList.clear();
+
         inventory = client.player.getInventory();
+
         inventory.forEach(itemStack -> {
             if (itemStack.getItem().equals(Items.COMPASS) && itemStack.get(DataComponentTypes.LODESTONE_TRACKER) != null && itemStack.get(DataComponentTypes.LODESTONE_TRACKER).target().isPresent()) {
-                GlobalPos lodestoneGlobalPos = itemStack.get(DataComponentTypes.LODESTONE_TRACKER).target().get();
-                String pinName = itemStack.getName().getLiteralString();
-                int color = 0xeb4034;
-                CompassPin pin = new CompassPin(lodestoneGlobalPos, pinName != null ? pinName : "|", color);
+                parseCompass(itemStack, 0xeb4034);
 
-                pinList.add(pin);
             } else if (itemStack.isIn(ItemTags.BUNDLES) && itemStack.getName().getString().toLowerCase().equals("compass bundle")) {
-                int bundleColor = BUNDLE_COLOR_MAP.getOrDefault(itemStack.getItem(), 0xeb4034);
-                itemStack.get(DataComponentTypes.BUNDLE_CONTENTS).iterate().forEach(bundleItem -> {
-                    if (bundleItem.getItem().equals(Items.COMPASS) && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER) != null && bundleItem.get(DataComponentTypes.LODESTONE_TRACKER).target().isPresent()) {
-                        GlobalPos lodestoneGlobalPos = bundleItem.get(DataComponentTypes.LODESTONE_TRACKER).target().get();
-                        String pinName = bundleItem.getName().getLiteralString();
+                processBundle(itemStack);
 
-                        CompassPin pin = new CompassPin(lodestoneGlobalPos, pinName != null ? pinName : "|", bundleColor);
-
-                        pinList.add(pin);
-                    }
-                });
             }
-            System.out.println(itemStack.getItem().equals(Items.BUNDLE));
         });
     }
 
