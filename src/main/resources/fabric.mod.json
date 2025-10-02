@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/hud-compass-mod",
-		"sources": "https://github.com/CaioFTNT/HudCompassMod/tree/main",
+		"sources": "https://github.com/CaioFTNT/HudCompassMod/",
 		"isssues": "https://github.com/CaioFTNT/HudCompassMod/issues"
 	},
 	"license": "MIT",
