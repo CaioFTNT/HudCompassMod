@@ -3,13 +3,14 @@
 	"id": "hud-compass",
 	"version": "${version}",
 	"name": "HUD Compass",
-	"description": "Simple RPG-style ",
+	"description": "Simple RPG-style hud compass",
 	"authors": [
-		"Me!"
+		"CaioFTNT"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/hud-compass-mod",
+		"sources": "https://github.com/CaioFTNT/HudCompassMod/tree/main",
+		"isssues": "https://github.com/CaioFTNT/HudCompassMod/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/hud-compass/icon.png",
@@ -36,6 +37,6 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		
 	}
 }
