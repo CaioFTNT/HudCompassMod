@@ -44,8 +44,8 @@ public class CompassRenderer {
         }
 
         // Draw all pins from lodestones
-        for (CompassPin pin : Pins.getPins(client.player.getWorld())) {
-            int offset = MathMethods.getCompassOffset(cam_angle, pin.getAngle(client.player.getPos()), compass_width);
+        for (CompassPin pin : Pins.getPins(client.player.getEntityWorld())) {
+            int offset = MathMethods.getCompassOffset(cam_angle, pin.getAngle(client.player.getEntityPos()), compass_width);
             int text_width = textRenderer.getWidth(pin.getName());
 
             // Draw only if its visible
@@ -60,9 +60,9 @@ public class CompassRenderer {
         Optional<GlobalPos> lastDeath = client.player.getLastDeathPos();
         if (lastDeath.isPresent()) {
             GlobalPos lastDeathPos = lastDeath.get();
-            if (lastDeathPos.dimension().equals(client.player.getWorld().getRegistryKey())) {
+            if (lastDeathPos.dimension().equals(client.player.getEntityWorld().getRegistryKey())) {
 
-                Vec3d relative_pos = Vec3d.ofCenter(lastDeathPos.pos()).subtract(client.player.getPos());
+                Vec3d relative_pos = Vec3d.ofCenter(lastDeathPos.pos()).subtract(client.player.getEntityPos());
 
                 int offset = MathMethods.getCompassOffset(cam_angle, Math.atan2(relative_pos.x, relative_pos.z)/Math.PI, compass_width);
                 int text_width = textRenderer.getWidth("☠");
