@@ -10,7 +10,7 @@
 	"contact": {
 		"homepage": "https://modrinth.com/mod/hud-compass-mod",
 		"sources": "https://github.com/CaioFTNT/HudCompassMod/",
-		"isssues": "https://github.com/CaioFTNT/HudCompassMod/issues"
+		"issues": "https://github.com/CaioFTNT/HudCompassMod/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/hud-compass/icon.png",
@@ -21,6 +21,9 @@
 		],
 		"client": [
 			"com.johndue.hudcompassmod.HUDCompassClient"
+		],
+		"modmenu": [
+			"com.johndue.hudcompassmod.HUDCompassModMenu"
 		]
 	},
 	"mixins": [
@@ -37,6 +40,6 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		
+		"modmenu": "*"
 	}
 }

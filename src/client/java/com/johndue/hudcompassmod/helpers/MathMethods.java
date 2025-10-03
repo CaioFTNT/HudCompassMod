@@ -19,9 +19,9 @@ public class MathMethods {
         return alpha;
     }
 
-    public static int getCompassOffset(double camera_angle, double direction_angle, int compass_width) {
-        int offset = (int)(wrapAngle(camera_angle-direction_angle) * compass_width);
-
-        return offset;
+    public static int getCompassOffset(double camera_angle, double direction_angle, int compass_width, int compass_fov) {
+        double offset = wrapAngle(camera_angle-direction_angle) * compass_width;
+    
+        return (int)(offset/compass_fov * 180);
     }
 }
