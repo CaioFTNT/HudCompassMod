@@ -16,9 +16,6 @@
 	"icon": "assets/hud-compass/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"com.johndue.hudcompassmod.HUDCompass"
-		],
 		"client": [
 			"com.johndue.hudcompassmod.HUDCompassClient"
 		],
@@ -27,7 +24,6 @@
 		]
 	},
 	"mixins": [
-		"hud-compass.mixins.json",
 		{
 			"config": "hud-compass.client.mixins.json",
 			"environment": "client"
