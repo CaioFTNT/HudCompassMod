@@ -41,8 +41,8 @@ public class CompassRenderer {
 
             // Draw only if its visible
             if (Math.abs(offset) - text_width/2 < compass_width/2) {
-                int rgb_color = direction.getLabel().equals("N") ? 0xffffff : 0xaaaaaa;
-                int rgba_color = (MathMethods.getAlphaFromOffset(offset, compass_width, text_width) << 24) | rgb_color;
+                int rgb_color = ModConfig.get().highlightNorth.getColor() != null && direction.getLabel().equals("N")  ? ModConfig.get().highlightNorth.getColor() : (int)(MathMethods.getBrightnessColor(0xffffff, ModConfig.get().directionsBrightness));
+                int rgba_color = ((int)(MathMethods.getAlphaFromOffset(offset, compass_width, text_width) * ModConfig.get().directionsOpacity) << 24) | rgb_color;
 
                 context.drawText(textRenderer, direction.getLabel(), window_center_x + offset - text_width/2, 2, rgba_color, false);
             }
@@ -55,7 +55,7 @@ public class CompassRenderer {
 
             // Draw only if its visible
             if (Math.abs(offset) - text_width/2 < compass_width/2) {
-                int rgba_color = (MathMethods.getAlphaFromOffset(offset, compass_width, text_width) << 24) | pin.getColor();
+                int rgba_color = ((int)(MathMethods.getAlphaFromOffset(offset, compass_width, text_width) * ModConfig.get().directionsOpacity) << 24) | pin.getColor();
 
                 context.drawText(textRenderer, pin.getName(), window_center_x + offset - text_width/2, 2, rgba_color, false);
             }
@@ -74,7 +74,7 @@ public class CompassRenderer {
 
                 // Draw only if its visible
                 if (Math.abs(offset) - text_width/2 < compass_width/2) {
-                    int rgba_color = (MathMethods.getAlphaFromOffset(offset, compass_width, text_width) << 24) | 0x444444;
+                    int rgba_color = ((int)(MathMethods.getAlphaFromOffset(offset, compass_width, text_width) * ModConfig.get().directionsOpacity) << 24) | 0x444444;
 
                     context.drawText(textRenderer, "☠", window_center_x + offset - text_width/2, 2, rgba_color, false);
                 }

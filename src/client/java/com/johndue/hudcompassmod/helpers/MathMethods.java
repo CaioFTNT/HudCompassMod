@@ -24,4 +24,20 @@ public class MathMethods {
     
         return (int)(offset/compass_fov * 180);
     }
+    
+    public static int getBrightnessColor(int color, double brightness) {
+        int r = (color >> 16) & 0xFF;
+        int g = (color >> 8) & 0xFF;
+        int b = color & 0xFF;
+
+        r = (int) Math.round(r * brightness);
+        g = (int) Math.round(g * brightness);
+        b = (int) Math.round(b * brightness);
+
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
+
+        return (r << 16) | (g << 8) | b;
+    }
 }
